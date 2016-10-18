@@ -21,7 +21,7 @@ int main() {
 	char choice;
 	
 	cout << "Welcome to the Convex Hull Calculator" << endl;
-	cout << "Press e to enter in up to 10 coordinates." << endl;
+	cout << "Press any character to enter in up to 10 coordinates." << endl;
 	cin >> choice;
 
 	while (choice != 'q' && i < 10) {
@@ -32,12 +32,12 @@ int main() {
 		p[i].x = x;
 		p[i].y = y;
 		i++;
-		cout << endl << "Press e to continue or q to quit" << endl;
+		cout << endl << "Press any character to continue or q to quit" << endl;
 		cin >> choice;
 	}
 	if (i < 3) {
 		//invalid input
-		cout << "Any number of points less than three only forms one line segment. Cannot compute Convex Hull." << endl;
+		cout << "Any number of points less than three only forms one or no line segment. Cannot compute Convex Hull." << endl;
 	}
 	else {
 		//perform convexHull
@@ -65,6 +65,7 @@ void convexHull(point p[], int n) {
 	j = leftMost;
 	do {
 		result.push_back(p[j]); //adding new point to vector (in first case, its the left-most point)
+		cout << "Point added to Convex Hull Set: {" << p[j].x << "," << p[j].y << "}" << endl;
 
 		k = (j + 1) % n; //remainder of points to check
 
